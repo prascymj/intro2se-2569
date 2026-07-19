@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Intro2SE Handbook</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>:root{--ink:#13233a;--accent:#1f6feb;--muted:#5a6b80}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,"Noto Sans Thai",sans-serif;
+   color:var(--ink);background:#f5f9ff;margin:0;padding:0;line-height:1.65}
+  .wrap{max-width:860px;margin:0 auto;padding:3rem 1.4rem 5rem}
+  nav.top{background:#102b4c;padding:.9rem 1.4rem;position:sticky;top:0;z-index:5}
+  nav.top a{color:#cfe4ff;text-decoration:none;margin-right:1.2rem;font-size:.95rem;font-weight:600}
+  nav.top a:hover{color:#fff}
+  h1{font-size:2.1rem;line-height:1.2;margin:.2rem 0 1.4rem;color:#102b4c}
+  h2{font-size:1.45rem;margin:2.2rem 0 .8rem;color:#1f4d80;border-bottom:2px solid #dbe6f2;padding-bottom:.35rem}
+  h3{font-size:1.15rem;margin:1.6rem 0 .5rem}
+  table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.95rem;display:block;overflow-x:auto}
+  th{background:#1f6feb;color:#fff;text-align:left;padding:.6rem .8rem}
+  td{padding:.55rem .8rem;border-bottom:1px solid #e2ecf7}
+  tr:nth-child(even) td{background:#fff}
+  blockquote{border-left:5px solid #0a8f6c;background:#fff;margin:1.2rem 0;padding:.9rem 1.1rem;border-radius:0 8px 8px 0}
+  code{background:#e8f0fb;padding:.15rem .4rem;border-radius:4px;font-size:.9em}
+  a{color:var(--accent)}
+  ul,ol{padding-left:1.4rem}
+  hr{border:none;border-top:1px solid #dbe6f2;margin:2rem 0}</style>
+</head>
+<body>
+<nav class="top"><a href="../index.html">🏠 Course home</a><a href="index.html">Handbook</a><a href="01-schedule.html">Schedule</a><a href="02-assessment-and-ai-policy.html">Grading &amp; AI</a><a href="03-deliverables.html">Deliverables</a><a href="04-project-studymate.html">Project</a><a href="05-faq.html">FAQ</a><a href="../slides/index.html">Slides</a></nav><div class="wrap">
+<header id="title-block-header">
+<h1 class="title">Intro2SE Handbook</h1>
+</header>
+<h1 id="how-youre-graded--ai-policy">How You're Graded + AI Policy</h1>
+<p>← <a href="index.html">back to home</a></p>
+<h2 id="grade-breakdown">Grade breakdown</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th>Component</th>
+<th style="text-align: center;">Weight</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td><strong>Group Project</strong></td>
+<td style="text-align: center;">30%</td>
+<td>your team's software, built across 5 milestones (graded per
+team)</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td><strong>Attendance + on-time submission</strong></td>
+<td style="text-align: center;">10%</td>
+<td>class check-in (Google Form) + handing work in on time</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td><strong>Self-report + AI Log</strong></td>
+<td style="text-align: center;">10%</td>
+<td>a short report <strong>you write yourself</strong> about what you
+did &amp; learned</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td><strong>Oral exam</strong></td>
+<td style="text-align: center;">10%</td>
+<td>individual; you explain your own work and answers</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td><strong>Midterm exam</strong></td>
+<td style="text-align: center;">20%</td>
+<td>written (MCQ + short), Ch1–7</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td><strong>Final exam</strong></td>
+<td style="text-align: center;">20%</td>
+<td>written (MCQ + short), Ch1–10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Grade bands:</strong> A(80–100) · B+(75–79) · B(70–75) ·
+C+(65–69) · C(60–65) · D+(55–59) · D(50–54) · F(0–49)</p>
+<h2 id="the-golden-thread-how-the-project-is-judged-thread">The Golden
+Thread (how the project is judged) 🧵</h2>
+<p>We grade <strong>coherence, not quantity</strong>. Everything must
+connect:</p>
+<blockquote>
+<p><strong>Problem → Requirement → Design → Feature → Test</strong> must
+be <em>one consistent thing.</em></p>
+</blockquote>
+<p>A small project where the thread holds beats a big one where the
+pieces don't connect. You'll keep a simple <strong>Traceability
+Matrix</strong> (one row per feature) — see <a
+href="04-project-studymate.html">Project</a>.</p>
+<h2 id="ai-policy-read-carefully-robot">AI Policy (read carefully)
+🤖</h2>
+<p><strong>You may use AI</strong> (ChatGPT, Claude, Copilot, etc.).
+This course is AI-First. But:</p>
+<ol type="1">
+<li><strong>Log every use</strong> — keep an <strong>AI Usage
+Log</strong>: what you asked, what AI gave, what you changed.</li>
+<li><strong>Verify it</strong> — AI is often wrong. Check and fix its
+output against your requirements/tests.</li>
+<li><strong>Explain it</strong> — in the <strong>oral exam</strong> you
+must explain any part you submitted, including AI-assisted parts.</li>
+</ol>
+<blockquote>
+<p>❌ <strong>Not allowed:</strong> submitting AI output you don't
+understand; copying a teammate's self-report; hiding AI use. ✅
+<strong>Encouraged:</strong> using AI to learn faster, draft, and
+explore — then making it your own and being able to defend it.</p>
+</blockquote>
+<p><strong>What happens if you can't explain your work?</strong> That
+part scores <strong>0</strong> in the oral exam, and undisclosed AI use
+becomes an academic-integrity case.</p>
+<h2 id="your-self-report-10--and-why-it-feeds-the-oral-exam">Your
+Self-report (10%) — and why it feeds the oral exam</h2>
+<p>Each of you writes a short, <strong>personal</strong> report: what
+<em>you</em> did, what <em>you</em> learned, where you used AI and what
+you changed. It must be <strong>different from your
+teammates'</strong>.</p>
+<p>In the oral exam, we ask you about <em>your own</em> self-report. If
+you wrote it honestly, this is easy. If AI wrote it for you, you won't
+be able to defend it. That's the point. → <a
+href="03-deliverables.html">How to write it</a></p>
+<p>Next: <a href="03-deliverables.html">What you submit →</a></p>
+</div></body>
+</html>

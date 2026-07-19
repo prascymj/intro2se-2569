@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Intro2SE Handbook</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>:root{--ink:#13233a;--accent:#1f6feb;--muted:#5a6b80}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,"Noto Sans Thai",sans-serif;
+   color:var(--ink);background:#f5f9ff;margin:0;padding:0;line-height:1.65}
+  .wrap{max-width:860px;margin:0 auto;padding:3rem 1.4rem 5rem}
+  nav.top{background:#102b4c;padding:.9rem 1.4rem;position:sticky;top:0;z-index:5}
+  nav.top a{color:#cfe4ff;text-decoration:none;margin-right:1.2rem;font-size:.95rem;font-weight:600}
+  nav.top a:hover{color:#fff}
+  h1{font-size:2.1rem;line-height:1.2;margin:.2rem 0 1.4rem;color:#102b4c}
+  h2{font-size:1.45rem;margin:2.2rem 0 .8rem;color:#1f4d80;border-bottom:2px solid #dbe6f2;padding-bottom:.35rem}
+  h3{font-size:1.15rem;margin:1.6rem 0 .5rem}
+  table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.95rem;display:block;overflow-x:auto}
+  th{background:#1f6feb;color:#fff;text-align:left;padding:.6rem .8rem}
+  td{padding:.55rem .8rem;border-bottom:1px solid #e2ecf7}
+  tr:nth-child(even) td{background:#fff}
+  blockquote{border-left:5px solid #0a8f6c;background:#fff;margin:1.2rem 0;padding:.9rem 1.1rem;border-radius:0 8px 8px 0}
+  code{background:#e8f0fb;padding:.15rem .4rem;border-radius:4px;font-size:.9em}
+  a{color:var(--accent)}
+  ul,ol{padding-left:1.4rem}
+  hr{border:none;border-top:1px solid #dbe6f2;margin:2rem 0}</style>
+</head>
+<body>
+<nav class="top"><a href="../index.html">🏠 Course home</a><a href="index.html">Handbook</a><a href="01-schedule.html">Schedule</a><a href="02-assessment-and-ai-policy.html">Grading &amp; AI</a><a href="03-deliverables.html">Deliverables</a><a href="04-project-studymate.html">Project</a><a href="05-faq.html">FAQ</a><a href="../slides/index.html">Slides</a></nav><div class="wrap">
+<header id="title-block-header">
+<h1 class="title">Intro2SE Handbook</h1>
+</header>
+<h1 id="your-team-project--the-studymate-example">Your Team Project (+
+the StudyMate example)</h1>
+<p>← <a href="index.html">back to home</a></p>
+<h2 id="the-shared-problem-student-life">The shared problem: student
+life</h2>
+<p>Everyone builds in the <strong>same problem space</strong> —
+<em>helping a student organize their study life</em> — but <strong>each
+team builds different features.</strong> Same domain, different
+solutions. (So you can't copy, and the teacher's examples still apply to
+your team.)</p>
+<p>You <strong>live this pain</strong>: classes, deadlines, group work,
+club activities, scattered notes, messy communication. That's why you
+can write great requirements for it.</p>
+<h2 id="two-layers-so-you-dont-drown">Two layers (so you don't
+drown)</h2>
+<p><strong>Layer A — everyone builds this core (small,
+doable):</strong></p>
+<ol type="1">
+<li>Add classes / deadlines / tasks (with due date)</li>
+<li>Remind me before a deadline</li>
+<li>See my week at a glance</li>
+<li>One <strong>AI-assisted feature</strong>, e.g. type <em>"group SE
+meeting Tuesday 3pm"</em> → AI turns it into a calendar event (one API
+call — no model training)</li>
+</ol>
+<p><strong>Layer B — your team picks 1–2 of your own:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Theme</th>
+<th>Example features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Group work</td>
+<td>shared task board · who-does-what · group deadline tracker</td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>notes per subject · <strong>AI note summary</strong> ·
+flashcards</td>
+</tr>
+<tr>
+<td>Planning</td>
+<td>study-time suggester · exam countdown · weekly goals</td>
+</tr>
+<tr>
+<td>Activities</td>
+<td>club/event finder · sign-up · attendance check-in</td>
+</tr>
+<tr>
+<td>Communication</td>
+<td>group announcements · reminders to teammates · meeting poll</td>
+</tr>
+<tr>
+<td>Focus</td>
+<td>pomodoro timer + study stats</td>
+</tr>
+<tr>
+<td>Matching</td>
+<td>find a study buddy by course/time</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Want a different idea? Some teams may pick another real-world topic —
+ask the instructor.</p>
+</blockquote>
+<h2 id="the-teaching-example-studymate">The teaching example:
+<strong>StudyMate</strong></h2>
+<p>In class the instructor demos <strong>StudyMate</strong> (a student
+study assistant) each week, then you apply the <em>same step</em> to
+your own project. Full walkthrough: <strong>the “StudyMate” walkthrough
+handed out in class</strong>.</p>
+<h3 id="one-feature-all-the-way-down-the-model-to-copy">One feature, all
+the way down (the model to copy)</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>StudyMate example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Requirement</strong> (what)</td>
+<td>FR-3: remind 1 day before a deadline; not for done tasks</td>
+</tr>
+<tr>
+<td><strong>Design</strong> (how)</td>
+<td>a daily scheduler + a <code>Task</code> entity</td>
+</tr>
+<tr>
+<td><strong>Code</strong></td>
+<td><code>tasks_due_for_reminder(...)</code> + a commit that says
+<code>(FR-3)</code></td>
+</tr>
+<tr>
+<td><strong>Test</strong></td>
+<td>tests that match the acceptance criteria</td>
+</tr>
+</tbody>
+</table>
+<p>Do this for <strong>your</strong> features and the Golden Thread
+takes care of itself.</p>
+<h2 id="security--ethics-youll-be-graded-on-basic-awareness">Security
+&amp; ethics (you'll be graded on basic awareness)</h2>
+<ul>
+<li>A schedule is <strong>personal</strong> → a student should see only
+their own tasks.</li>
+<li>Don't put secrets/passwords in your repo.</li>
+<li>AI features can be wrong (it may read "Tuesday" as "Wednesday") → a
+human checks; get consent; don't expose group chats.</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>Start the SRS in Week 3 — it drives everything.</li>
+<li>Use Git from Week 6; everyone commits (it's graded).</li>
+<li>Keep your <strong>AI Usage Log</strong> as you go, not at the
+end.</li>
+<li>Keep the MVP small and finished, then add one team feature.</li>
+</ul>
+<p>Next: <a href="05-faq.html">FAQ →</a></p>
+</div></body>
+</html>

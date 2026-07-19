@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Intro2SE Handbook</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>:root{--ink:#13233a;--accent:#1f6feb;--muted:#5a6b80}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,"Noto Sans Thai",sans-serif;
+   color:var(--ink);background:#f5f9ff;margin:0;padding:0;line-height:1.65}
+  .wrap{max-width:860px;margin:0 auto;padding:3rem 1.4rem 5rem}
+  nav.top{background:#102b4c;padding:.9rem 1.4rem;position:sticky;top:0;z-index:5}
+  nav.top a{color:#cfe4ff;text-decoration:none;margin-right:1.2rem;font-size:.95rem;font-weight:600}
+  nav.top a:hover{color:#fff}
+  h1{font-size:2.1rem;line-height:1.2;margin:.2rem 0 1.4rem;color:#102b4c}
+  h2{font-size:1.45rem;margin:2.2rem 0 .8rem;color:#1f4d80;border-bottom:2px solid #dbe6f2;padding-bottom:.35rem}
+  h3{font-size:1.15rem;margin:1.6rem 0 .5rem}
+  table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.95rem;display:block;overflow-x:auto}
+  th{background:#1f6feb;color:#fff;text-align:left;padding:.6rem .8rem}
+  td{padding:.55rem .8rem;border-bottom:1px solid #e2ecf7}
+  tr:nth-child(even) td{background:#fff}
+  blockquote{border-left:5px solid #0a8f6c;background:#fff;margin:1.2rem 0;padding:.9rem 1.1rem;border-radius:0 8px 8px 0}
+  code{background:#e8f0fb;padding:.15rem .4rem;border-radius:4px;font-size:.9em}
+  a{color:var(--accent)}
+  ul,ol{padding-left:1.4rem}
+  hr{border:none;border-top:1px solid #dbe6f2;margin:2rem 0}</style>
+</head>
+<body>
+<nav class="top"><a href="../index.html">🏠 Course home</a><a href="index.html">Handbook</a><a href="01-schedule.html">Schedule</a><a href="02-assessment-and-ai-policy.html">Grading &amp; AI</a><a href="03-deliverables.html">Deliverables</a><a href="04-project-studymate.html">Project</a><a href="05-faq.html">FAQ</a><a href="../slides/index.html">Slides</a></nav><div class="wrap">
+<header id="title-block-header">
+<h1 class="title">Intro2SE Handbook</h1>
+</header>
+<h1 id="weekly-schedule--key-dates">Weekly Schedule &amp; Key Dates</h1>
+<p>All classes: <strong>Monday 12:00–14:50, Room E3 B 102.</strong> ← <a
+href="index.html">back to home</a></p>
+<p>The course is <strong>10 chapters + 2 flex weeks + 2 oral-exam
+weeks</strong>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Wk</th>
+<th>Date</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>3 Aug</td>
+<td><strong>Ch1</strong> Intro to SE · the human engineer in the AI era
+· form teams</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>10 Aug</td>
+<td><strong>Ch2</strong> Software processes &amp; life cycles
+(SDLC/Agile)</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>17 Aug</td>
+<td><strong>Ch3</strong> Requirements &amp; specification → start your
+<strong>SRS</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>24 Aug</td>
+<td><strong>Ch4</strong> Modeling (UML)</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>31 Aug</td>
+<td><strong>Ch5</strong> Design + UI basics</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>7 Sep</td>
+<td><strong>Ch6</strong> Construction &amp; version control
+(Git/GitHub)</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>14 Sep</td>
+<td><strong>Ch7</strong> Unit testing</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>21 Sep</td>
+<td>🛠️ <strong>Flex</strong> — project clinic + midterm review</td>
+</tr>
+<tr>
+<td style="text-align: center;">—</td>
+<td><strong>28 Sep – 4 Oct</strong></td>
+<td>📝 <strong>MIDTERM EXAM</strong> (covers Ch1–7)</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td>5 Oct</td>
+<td><strong>Ch8</strong> Quality &amp; security</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td>12 Oct</td>
+<td><strong>Ch9</strong> Project management &amp; process</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td>19 Oct</td>
+<td><strong>Ch10</strong> Professional ethics &amp; practice + dev
+tools</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td>26 Oct</td>
+<td>🛠️ <strong>Flex</strong> — finish your demo + write your
+<strong>Self-report</strong> + oral prep</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td>2 Nov</td>
+<td>🗣️ <strong>Oral exam (group A)</strong> + project demo</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td>9 Nov</td>
+<td>🗣️ <strong>Oral exam (group B)</strong> + project demo</td>
+</tr>
+<tr>
+<td style="text-align: center;">—</td>
+<td><strong>23 Nov – 4 Dec</strong></td>
+<td>📝 <strong>FINAL EXAM</strong> (covers Ch1–10)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-deadlines-project-milestones">Key deadlines (project
+milestones)</h2>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Due</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1 Team Charter</td>
+<td>Week 2 (10 Aug)</td>
+</tr>
+<tr>
+<td>M2 SRS</td>
+<td>Week 4 (24 Aug)</td>
+</tr>
+<tr>
+<td>M3 Design + prototype</td>
+<td>Week 6 (7 Sep)</td>
+</tr>
+<tr>
+<td>M4 Build + tests</td>
+<td>Week 10 (12 Oct)</td>
+</tr>
+<tr>
+<td>M5 Final report + demo</td>
+<td>Weeks 13–14 (oral exam)</td>
+</tr>
+<tr>
+<td><strong>Self-report + AI Log</strong> (individual)</td>
+<td>Week 12 (26 Oct)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Exam dates are set within the official periods by the registrar. No
+final exams on <strong>Sat 28 / Sun 29 Nov</strong>.</p>
+</blockquote>
+<p>See also: <a href="03-deliverables.html">Deliverables →</a> · <a
+href="02-assessment-and-ai-policy.html">How you're graded →</a></p>
+</div></body>
+</html>

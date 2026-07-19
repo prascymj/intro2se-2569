@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Intro2SE Handbook</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>:root{--ink:#13233a;--accent:#1f6feb;--muted:#5a6b80}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,"Noto Sans Thai",sans-serif;
+   color:var(--ink);background:#f5f9ff;margin:0;padding:0;line-height:1.65}
+  .wrap{max-width:860px;margin:0 auto;padding:3rem 1.4rem 5rem}
+  nav.top{background:#102b4c;padding:.9rem 1.4rem;position:sticky;top:0;z-index:5}
+  nav.top a{color:#cfe4ff;text-decoration:none;margin-right:1.2rem;font-size:.95rem;font-weight:600}
+  nav.top a:hover{color:#fff}
+  h1{font-size:2.1rem;line-height:1.2;margin:.2rem 0 1.4rem;color:#102b4c}
+  h2{font-size:1.45rem;margin:2.2rem 0 .8rem;color:#1f4d80;border-bottom:2px solid #dbe6f2;padding-bottom:.35rem}
+  h3{font-size:1.15rem;margin:1.6rem 0 .5rem}
+  table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.95rem;display:block;overflow-x:auto}
+  th{background:#1f6feb;color:#fff;text-align:left;padding:.6rem .8rem}
+  td{padding:.55rem .8rem;border-bottom:1px solid #e2ecf7}
+  tr:nth-child(even) td{background:#fff}
+  blockquote{border-left:5px solid #0a8f6c;background:#fff;margin:1.2rem 0;padding:.9rem 1.1rem;border-radius:0 8px 8px 0}
+  code{background:#e8f0fb;padding:.15rem .4rem;border-radius:4px;font-size:.9em}
+  a{color:var(--accent)}
+  ul,ol{padding-left:1.4rem}
+  hr{border:none;border-top:1px solid #dbe6f2;margin:2rem 0}</style>
+</head>
+<body>
+<nav class="top"><a href="../index.html">🏠 Course home</a><a href="index.html">Handbook</a><a href="01-schedule.html">Schedule</a><a href="02-assessment-and-ai-policy.html">Grading &amp; AI</a><a href="03-deliverables.html">Deliverables</a><a href="04-project-studymate.html">Project</a><a href="05-faq.html">FAQ</a><a href="../slides/index.html">Slides</a></nav><div class="wrap">
+<header id="title-block-header">
+<h1 class="title">Intro2SE Handbook</h1>
+</header>
+<h1
+id="introduction-to-software-engineering--student-handbook">Introduction
+to Software Engineering — Student Handbook</h1>
+<p><strong>15031001 · Semester 1, 2026 · Year 1 · School of Applied
+Digital Technology, MFU</strong></p>
+<p>Welcome! This is your guide to the course. Read it first, and come
+back whenever you're unsure what to do.</p>
+<h2 id="quick-facts">Quick facts</h2>
+<table>
+<tbody>
+<tr>
+<td>Course</td>
+<td>15031001 Introduction to Software Engineering</td>
+</tr>
+<tr>
+<td>Credits</td>
+<td>3 (3-0-6)</td>
+</tr>
+<tr>
+<td>Instructor</td>
+<td>Dr. Prasara Jakkaew</td>
+</tr>
+<tr>
+<td>Class</td>
+<td><strong>Monday 12:00–14:50</strong>, Room <strong>E3 B 102</strong>
+(Section 1)</td>
+</tr>
+<tr>
+<td>Textbook</td>
+<td>Sommerville, <em>Software Engineering</em>, 9th ed. (free modern
+supplement: <a href="https://softengbook.org/">softengbook.org</a>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-this-course-is-really-about">What this course is really
+about</h2>
+<p>AI can already write code. So this course is about what makes
+<em>you</em> the engineer:</p>
+<blockquote>
+<p><strong>framing the right problem · making decisions · checking
+what's built · being accountable · working in a team</strong></p>
+</blockquote>
+<p>You will go through the <strong>whole software process once, as a
+team</strong> — requirements → design → build → test → secure → present
+— using AI as a helper that <em>you direct and verify</em>.</p>
+<h2 id="the-one-rule-that-matters-most-key">The one rule that matters
+most 🔑</h2>
+<p>You <strong>may use AI</strong>. But for everything you hand in you
+must:</p>
+<ol type="1">
+<li><strong>Log it</strong> — what you asked AI, what it gave you</li>
+<li><strong>Verify it</strong> — check and fix what it produced</li>
+<li><strong>Explain it</strong> — out loud, in the oral exam</li>
+</ol>
+<blockquote>
+<p><strong>Work you cannot explain earns no credit.</strong> "AI wrote
+it and I just submitted it" will not pass.</p>
+</blockquote>
+<h2 id="start-here">Start here</h2>
+<ul>
+<li>📅 <a href="01-schedule.html">Weekly Schedule &amp; Key
+Dates</a></li>
+<li>📊 <a href="02-assessment-and-ai-policy.html">How You're Graded + AI
+Policy</a></li>
+<li>📦 <a href="03-deliverables.html">What You Submit (Deliverables
+&amp; Templates)</a></li>
+<li>🚀 <a href="04-project-studymate.html">Your Team Project (+ the
+StudyMate example)</a></li>
+<li>❓ <a href="05-faq.html">FAQ</a></li>
+</ul>
+<h2 id="grades-at-a-glance">Grades at a glance</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: center;">Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Group Project (team)</td>
+<td style="text-align: center;">30%</td>
+</tr>
+<tr>
+<td>Attendance + on-time submission</td>
+<td style="text-align: center;">10%</td>
+</tr>
+<tr>
+<td>Self-report + AI Log (yours alone)</td>
+<td style="text-align: center;">10%</td>
+</tr>
+<tr>
+<td>Oral exam (individual)</td>
+<td style="text-align: center;">10%</td>
+</tr>
+<tr>
+<td>Midterm</td>
+<td style="text-align: center;">20%</td>
+</tr>
+<tr>
+<td>Final</td>
+<td style="text-align: center;">20%</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="02-assessment-and-ai-policy.html">the full breakdown
+→</a></p>
+</div></body>
+</html>
